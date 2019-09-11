@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import AceEditor from "../src/ace";
+import ace from "brace";
 import "brace/mode/jsx";
 
 const languages = [
@@ -304,6 +305,7 @@ class App extends Component {
         <div className="examples column">
           <h2>Editor</h2>
           <AceEditor
+            ace={ace}
             placeholder={this.state.placeholder}
             mode={this.state.mode}
             theme={this.state.theme}
@@ -330,6 +332,7 @@ class App extends Component {
         <div className="column">
           <h2>Code</h2>
           <AceEditor
+            ace={ace}
             mode="jsx"
             theme="monokai"
             readOnly={true}

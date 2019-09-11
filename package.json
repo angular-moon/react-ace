@@ -1,5 +1,5 @@
 {
-  "name": "react-ace",
+  "name": "@angular-moon/react-ace",
   "version": "7.0.4",
   "description": "A react component for Ace Editor",
   "main": "lib/index.js",
@@ -110,8 +110,11 @@
       "html"
     ]
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "repository": {
     "type": "git",
-    "url": "http://github.com/securingsincity/react-ace.git"
+    "url": "http://github.com/angular-moon/react-ace.git"
   }
 }

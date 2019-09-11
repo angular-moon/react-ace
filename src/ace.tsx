@@ -1,15 +1,7 @@
-import { Annotation } from "brace";
 import * as PropTypes from "prop-types";
 import * as React from "react";
 const isEqual = require("lodash.isequal");
-import {
-  debounce,
-  editorEvents,
-  editorOptions,
-  getAceInstance
-} from "./editorOptions";
-const ace = getAceInstance();
-const { Range } = ace.acequire("ace/range");
+import { debounce, editorEvents, editorOptions } from "./editorOptions";
 
 import { AceEditorClass } from "./AceEditorClass";
 import { IAceOptions, ICommand, IEditorProps, IMarker } from "./types";
@@ -17,7 +9,18 @@ import { IAceOptions, ICommand, IEditorProps, IMarker } from "./types";
  * See https://github.com/ajaxorg/ace/wiki/Configuring-Ace
  */
 
+export interface Annotation {
+  row: number;
+
+  column: number;
+
+  text: string;
+
+  type: string;
+}
+
 export interface IAceEditorProps {
+  ace: any;
   name?: string;
   style?: React.CSSProperties;
   /** For available modes see https://github.com/thlorenz/brace/tree/master/mode */
@@ -169,6 +172,7 @@ export default class ReactAce extends React.Component<IAceEditorProps> {
 
   public componentDidMount() {
     const {
+      ace,
       className,
       onBeforeLoad,
       onValidate,
@@ -191,6 +195,7 @@ export default class ReactAce extends React.Component<IAceEditorProps> {
       placeholder
     } = this.props;
 
+    ace.acequire = ace.require || ace.acequire;
     this.editor = ace.edit(this.refEditor);
 
     if (onBeforeLoad) {
@@ -483,6 +488,8 @@ export default class ReactAce extends React.Component<IAceEditorProps> {
         this.editor.getSession().removeMarker(currentMarkers[i].id);
       }
     }
+
+    const Range = this.props.ace.acequire("ace/range");
     // add new markers
     markers.forEach(
       ({

@@ -45,17 +45,6 @@ const editorEvents: EditorEvent[] = [
   "handleOptions",
   "updateRef"
 ];
-const getAceInstance = () => {
-  let ace;
-  // Fallback for ace.require when vanilla ACE is hosted over a CDN
-  if ((window as any).ace) {
-    ace = (window as any).ace;
-    ace.acequire = (window as any).ace.require || (window as any).ace.acequire;
-  } else {
-    ace = require("brace");
-  }
-  return ace;
-};
 
 const debounce = (fn: (...args: any[]) => void, delay: number) => {
   let timer: any = null;
@@ -68,4 +57,4 @@ const debounce = (fn: (...args: any[]) => void, delay: number) => {
     }, delay);
   };
 };
-export { editorOptions, editorEvents, debounce, getAceInstance };
+export { editorOptions, editorEvents, debounce };

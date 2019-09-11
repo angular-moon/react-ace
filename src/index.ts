@@ -1,6 +1,4 @@
 import ace, { IAceEditorProps } from "./ace";
-import diff, { IDiffEditorProps, IDiffEditorState } from "./diff";
-import split, { ISplitEditorProps } from "./split";
 import {
   IAceOptions,
   ICommand,
@@ -10,17 +8,12 @@ import {
   IMarker
 } from "./types";
 export {
-  split,
-  diff,
   IAceOptions,
   IAceEditorProps,
   ICommand,
   ICommandBindKey,
   ICommandManager,
-  IDiffEditorProps,
-  IDiffEditorState,
   IEditorProps,
-  IMarker,
-  ISplitEditorProps
+  IMarker
 };
 export default ace;
