@@ -74,14 +74,10 @@
     "ace",
     "ace editor",
     "react-component",
-    "react",
-    "brace"
+    "react"
   ],
   "dependencies": {
-    "brace": "^0.11.1",
     "diff-match-patch": "^1.0.4",
-    "lodash.get": "^4.4.2",
-    "lodash.isequal": "^4.5.0",
     "prop-types": "^15.7.2"
   },
   "husky": {
@@ -91,7 +87,8 @@
   },
   "peerDependencies": {
     "react": "^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0",
-    "react-dom": "^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0"
+    "react-dom": "^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0",
+    "lodash": "^4.17.15"
   },
   "nyc": {
     "exclude": [

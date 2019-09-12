@@ -1,6 +1,6 @@
 import * as PropTypes from "prop-types";
 import * as React from "react";
-const isEqual = require("lodash.isequal");
+import { isEqual } from "lodash";
 import { debounce, editorEvents, editorOptions } from "./editorOptions";
 
 import { AceEditorClass } from "./AceEditorClass";
